@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Todo List</title>
+  <script defer src="index.js"></script>
+</head>
+<body>
+
+  <form id="newTaskForm">
+    <label for="title">Title:</label><br>
+    <input type="text" name="title"><br>
+
+    <label for="description">Description:</label><br>
+    <input type="text" name="description"><br>
+
+    <label for="dueDate">Due Date:</label><br>
+    <input type="date" name="dueDate"><br>
+
+    <label for="priority">Priority:</label><br>
+    <select name="priority">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low" selected>Low</option>
+    </select><br><br>
+
+    <button type="button" id="addTask"s>Add Task</button>
+    <button type="button">Cancel</button>
+  </form>
+
+</body>
+</html>
