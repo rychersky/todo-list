@@ -26,13 +26,23 @@ function buildTaskList() {
     const newElement = document.createElement('div');
     newElement.innerHTML = /*html*/`
       <p>${task.title}</p>
-      <button type="button" class="editTaskItem">✏</button>
+      <button type="button" class="editTask">✏</button>
       <button type="button" class="cancelTask">X</button>
     `;
-    const editTaskButton = newElement.querySelector('button.editTaskItem');
-    editTaskButton.addEventListener('click', () => buildEditTaskForm(task));
+
+    // Edit button
+    const editTask = newElement.querySelector('button.editTask');
+    editTask.addEventListener('click', buildEditTaskForm.bind(null, task));
     newElement.classList.add('taskItem');
     main.appendChild(newElement);
+
+    // Delete button
+    const deleteTask = newElement.querySelector('button.cancelTask');
+    deleteTask.addEventListener('click', () => {
+      const taskIndex = localStorage.findIndex(item => item === task);
+      localStorage.splice(taskIndex, 1);
+      buildTaskList();
+    });
   });
 }
 
