@@ -94,6 +94,7 @@ function buildEditTaskForm(task) {
 }
 
 function buildNewTaskForm() {
+  // Form
   main.innerHTML = /*html*/`
     <form id="newTaskForm">
       <label for="title">Title:</label><br>
@@ -116,6 +117,26 @@ function buildNewTaskForm() {
       <button type="button" id="cancelNewTask">Cancel</button>
     </form>
   `;
+
+  // Save button
+  const saveTask = main.querySelector('#addTask');
+  saveTask.addEventListener('click', () => {
+    const title = main.querySelector('input[name="title"]').value;
+    const desc = main.querySelector('input[name="description"]').value;
+    const dueDate = main.querySelector('input[name="dueDate"]').valueAsDate;
+    const priority = main.querySelector('select[name="priority"]').value;
+    if (title && desc && dueDate && priority) {
+      newTask = new Task(title, desc, dueDate, priority);
+      localStorage.push(newTask);
+      buildTaskList();
+    } else {
+      alert("Please fill out all fields");
+    }
+  });
+
+  // Cancel button
+  const cancelNewTask = main.querySelector('#cancelNewTask');
+  cancelNewTask.addEventListener('click', buildTaskList);
 }
 
 
