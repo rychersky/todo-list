@@ -1,4 +1,6 @@
 class Task {
+  project;
+
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -9,7 +11,7 @@ class Task {
 
 const main = document.querySelector('main');
 const localStorage = [
-  new Task('buy some shoes', `let's go to the mall you guys`, new Date(), 'low'),
+  new Task('projects pane', `let's go to the mall you guys`, new Date(), 'low'),
   new Task('plant a carrot', 'solve world hunger', new Date(), 'medium'),
 ];
 
