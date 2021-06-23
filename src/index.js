@@ -10,6 +10,7 @@ class Task {
 }
 
 const main = document.querySelector('main');
+
 const localStorage = [
   new Task('projects pane', `let's go to the mall you guys`, new Date(), 'low'),
   new Task('plant a carrot', 'solve world hunger', new Date(), 'medium'),
@@ -24,7 +25,7 @@ function buildTaskList() {
   newTaskButton.addEventListener('click', buildNewTaskForm);
 
   // Create each task item in UI
-  localStorage.forEach(task => {
+  localStorage.forEach(task => {  
     const newElement = document.createElement('div');
     newElement.innerHTML = /*html*/`
       <p>${task.title}</p>
@@ -96,7 +97,7 @@ function buildEditTaskForm(task) {
       task.priority = newPriority;
       buildTaskList();
     } else {
-      alert("Please fill out all fields");
+      alert('Please fill out all fields');
     }
   });
 
